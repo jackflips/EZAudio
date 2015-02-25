@@ -32,14 +32,22 @@
  The types of plots that can be displayed in the view using the data.
  */
 typedef NS_ENUM(NSInteger,EZPlotType){
-  /**
-   Plot that displays only the samples of the current buffer
-   */
-  EZPlotTypeBuffer,
-  /**
-   Plot that displays a rolling history of values using the RMS calculated for each incoming buffer
-   */
-  EZPlotTypeRolling
+    /**
+     Plot that displays only the samples of the current buffer
+     */
+    EZPlotTypeBuffer,
+    /**
+     Plot that displays a rolling history of values using the RMS calculated for each incoming buffer
+     */
+    EZPlotTypeRolling,
+    /**
+     Plot that displays a rolling history of values as discrete blocks as in iMessage
+     */
+    EZPlotTypeRollingBlocks,
+    /**
+     Plot that displays a rolling history of values as discrete blocks scrolling right.
+     */
+    EZPlotTypeRollingBlocksScrollRightPlot
 };
 
 /**
@@ -47,7 +55,7 @@ typedef NS_ENUM(NSInteger,EZPlotType){
  
  ## Subclassing Notes
  
- This class isn't meant to be directly used in practice, but instead establishes the default properties and behaviors subclasses should obey to provide consistent behavior accross multiple types of graphs (i.e. set background color, plot type, should fill in, etc.). Subclasses should make use of the inherited properties from this class to allow all child plots to benefit from the same 
+ This class isn't meant to be directly used in practice, but instead establishes the default properties and behaviors subclasses should obey to provide consistent behavior accross multiple types of graphs (i.e. set background color, plot type, should fill in, etc.). Subclasses should make use of the inherited properties from this class to allow all child plots to benefit from the same
  */
 #if TARGET_OS_IPHONE
 #import <UIKit/UIKit.h>
@@ -70,6 +78,18 @@ typedef NS_ENUM(NSInteger,EZPlotType){
  The default color of the plot's data (i.e. waveform, y-axis values). For iOS the color is specified as a UIColor while for OSX the color is an NSColor. The default value on both platforms is red.
  */
 @property (nonatomic,strong) id color;
+
+/**
+ The default color of the progress within the plot.
+ */
+
+@property (nonatomic, strong) id progressColor;
+
+/**
+ How much progress has been made. Number between 0 and 1.
+ */
+
+@property (nonatomic) float progress;
 
 /**
  The plot's gain value, which controls the scale of the y-axis values. The default value of the gain is 1.0f and should always be greater than 0.0f.
