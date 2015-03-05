@@ -51,11 +51,39 @@
    Customizing the audio plot's look
    */
   // Background color
-  self.audioPlot.backgroundColor = [UIColor colorWithRed:0.984 green:0.471 blue:0.525 alpha:1.0];
+
+/*
+    self.audioPlot.backgroundColor = [UIColor colorWithRed:0.984 green:0.471 blue:0.525 alpha:1.0];
   // Waveform color
-  self.audioPlot.color           = [UIColor colorWithRed:1.0 green:1.0 blue:1.0 alpha:1.0];
+    self.audioPlot.color           = [UIColor colorWithRed:1.0 green:1.0 blue:1.0 alpha:1.0];
+
+    [self.audioPlot setPlotSpeed:3.0];
   // Plot type
-  self.audioPlot.plotType        = EZPlotTypeBuffer;
+    [self drawRollingBlockPlot];
+ */
+    self.audioPlot = nil;
+    
+    
+    _plot2 = [[EZAudioPlot alloc] initWithFrame:CGRectMake(50.0, 150.0, 160, 50)];
+    _plot2.color = [UIColor whiteColor];
+    _plot2.backgroundColor = [UIColor redColor];
+    _plot2.plotType = EZPlotTypeRollingBlock;
+    _plot2.shouldMirror = YES;
+    _plot2.shouldFill = YES;
+    [_plot2 setProgress:.78];
+    [_plot2 setProgressColor:[UIColor blueColor]];
+    
+    
+    NSURL *applause = [[NSBundle mainBundle]
+                       URLForResource: @"applause" withExtension:@"mp3"];
+    EZAudioFile *audioFile = [EZAudioFile audioFileWithURL:applause];
+    [audioFile getWaveformDataWithCompletionBlock:^(float *waveformData, UInt32 length) {
+        [_plot2 generateWaveform:waveformData length:length];
+    }];
+
+    
+    [self.view addSubview:_plot2];
+    
   
   /*
    Start the microphone
@@ -84,6 +112,12 @@
   }
 }
 
+- (IBAction)sliderChanged:(id)sender {
+    UISlider *slider = (UISlider*)sender;
+    [_plot2 setProgress:slider.value];
+    NSLog(@"prog: %f", slider.value);
+}
+
 -(void)toggleMicrophone:(id)sender {
   if( ![(UISwitch*)sender isOn] ){
     [self.microphone stopFetchingAudio];
@@ -106,6 +140,18 @@
   self.audioPlot.shouldMirror = NO;
   // Don't fill
   self.audioPlot.shouldFill = NO;
+}
+
+- (void)drawRollingBlockPlot {
+    self.audioPlot.plotType = EZPlotTypeRollingBlock;
+    self.audioPlot.shouldFill = YES;
+    self.audioPlot.shouldMirror = YES;
+}
+
+- (void)drawRollingBlockRightPlot {
+    self.audioPlot.plotType = EZPlotTypeRollingBlockRight;
+    self.audioPlot.shouldFill = YES;
+    self.audioPlot.shouldMirror = YES;
 }
 
 /*

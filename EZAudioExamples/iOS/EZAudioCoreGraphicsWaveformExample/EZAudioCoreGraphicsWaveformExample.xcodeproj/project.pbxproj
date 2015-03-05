@@ -38,6 +38,9 @@
 		9417A7E51867DDD600D9D37B /* CHANGELOG in Resources */ = {isa = PBXBuildFile; fileRef = 9417A7D81867DDD600D9D37B /* CHANGELOG */; };
 		9417A7E61867DDD600D9D37B /* VERSION in Resources */ = {isa = PBXBuildFile; fileRef = 9417A7D91867DDD600D9D37B /* VERSION */; };
 		94FBB77318B15690007CAE45 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 94FBB77218B15690007CAE45 /* AVFoundation.framework */; };
+		ADF118781AA64EB1009094E3 /* applause.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = ADF118771AA64EB1009094E3 /* applause.mp3 */; };
+		ADF1187A1AA6AD4E009094E3 /* applause2.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = ADF118791AA6AD4E009094E3 /* applause2.mp3 */; };
+		ADF1187C1AA6AE5D009094E3 /* owl.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = ADF1187B1AA6AE5D009094E3 /* owl.mp3 */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -98,6 +101,9 @@
 		9417A7D81867DDD600D9D37B /* CHANGELOG */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = CHANGELOG; sourceTree = "<group>"; };
 		9417A7D91867DDD600D9D37B /* VERSION */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = VERSION; sourceTree = "<group>"; };
 		94FBB77218B15690007CAE45 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		ADF118771AA64EB1009094E3 /* applause.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = applause.mp3; sourceTree = "<group>"; };
+		ADF118791AA6AD4E009094E3 /* applause2.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = applause2.mp3; sourceTree = "<group>"; };
+		ADF1187B1AA6AE5D009094E3 /* owl.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = owl.mp3; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -163,6 +169,9 @@
 		94056F83185E593500EB94BA /* EZAudioCoreGraphicsWaveformExample */ = {
 			isa = PBXGroup;
 			children = (
+				ADF1187B1AA6AE5D009094E3 /* owl.mp3 */,
+				ADF118791AA6AD4E009094E3 /* applause2.mp3 */,
+				ADF118771AA64EB1009094E3 /* applause.mp3 */,
 				9417A7C01867DDD600D9D37B /* EZAudio */,
 				94056F8C185E593500EB94BA /* AppDelegate.h */,
 				94056F8D185E593500EB94BA /* AppDelegate.m */,
@@ -321,12 +330,15 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				ADF1187C1AA6AE5D009094E3 /* owl.mp3 in Resources */,
+				ADF1187A1AA6AD4E009094E3 /* applause2.mp3 in Resources */,
 				94056F94185E593500EB94BA /* Main_iPad.storyboard in Resources */,
 				94056F99185E593500EB94BA /* Images.xcassets in Resources */,
 				94056F91185E593500EB94BA /* Main_iPhone.storyboard in Resources */,
 				9417A7E61867DDD600D9D37B /* VERSION in Resources */,
 				94056F88185E593500EB94BA /* InfoPlist.strings in Resources */,
 				9417A7E51867DDD600D9D37B /* CHANGELOG in Resources */,
+				ADF118781AA64EB1009094E3 /* applause.mp3 in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
