@@ -117,7 +117,7 @@ typedef NS_ENUM(NSInteger,EZPlotType){
 /**
  The color of progress
  */
-@property (nonatomic, assign, setter=setProgressColor:) UIColor *progressColor;
+@property (nonatomic, strong, setter=setProgressColor:) UIColor *progressColor;
 
 #pragma mark - Clearing
 ///-----------------------------------------------------------
