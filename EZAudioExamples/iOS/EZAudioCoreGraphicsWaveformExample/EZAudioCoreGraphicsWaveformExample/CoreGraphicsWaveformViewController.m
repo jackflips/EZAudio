@@ -52,16 +52,18 @@
    */
   // Background color
 
-/*
     self.audioPlot.backgroundColor = [UIColor colorWithRed:0.984 green:0.471 blue:0.525 alpha:1.0];
   // Waveform color
     self.audioPlot.color           = [UIColor colorWithRed:1.0 green:1.0 blue:1.0 alpha:1.0];
 
-    [self.audioPlot setPlotSpeed:3.0];
+    [self.audioPlot setPlotSpeed:2.0];
   // Plot type
+    self.audioPlot.oneWay = YES;
     [self drawRollingBlockPlot];
- */
-    self.audioPlot = nil;
+
+    
+    
+    //self.audioPlot = nil;
     
     
     _plot2 = [[EZAudioPlot alloc] initWithFrame:CGRectMake(50.0, 150.0, 160, 50)];

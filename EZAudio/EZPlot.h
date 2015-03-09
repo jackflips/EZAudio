@@ -110,6 +110,11 @@ typedef NS_ENUM(NSInteger,EZPlotType){
 @property (nonatomic, assign, setter=setProgress:) float progress;
 
 /**
+ A flag that determines whether the waveform will scroll one direction
+ */
+@property (nonatomic) BOOL oneWay;
+
+/**
  The color of progress
  */
 @property (nonatomic, assign, setter=setProgressColor:) UIColor *progressColor;
